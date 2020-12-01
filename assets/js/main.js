@@ -29,7 +29,7 @@ const sections = document.querySelectorAll("section[id]");
 
 window.addEventListener("scroll", scrollActive);
 
-function scrollActive() {
+const scrollActive = () => {
   const scrollY = window.pageYOffset;
 
   sections.forEach((current) => {
@@ -44,7 +44,37 @@ function scrollActive() {
     } else {
       document
         .querySelector(".nav__menu a[href*=" + sectionId + "]")
-        .classList.remove("active");
+        .classList.remove("active-link");
     }
   });
-}
+};
+
+/*===== CHANGE BG COLOR HEADER =====*/
+const scrollHeader = () => {
+  const nav = document.getElementById("header");
+
+  // when the scroll is greater than 200vh
+  //add the scroll-header class
+  if (this.scrollY >= 200) {
+    nav.classList.add("scroll-header");
+  } else {
+    nav.classList.remove("scroll-header");
+  }
+};
+
+window.addEventListener("scroll", scrollHeader);
+
+/*===== SCROLL TO TOP =====*/
+const scrollTop = () => {
+  const scrollTop = document.getElementById("scroll-top");
+
+  // when the scroll is HIGHER than 560vh
+  //add the show-scroll class
+  if (this.scrollY >= 560) {
+    scrollTop.classList.add("scroll-top");
+  } else {
+    scrollTop.classList.remove("scroll-top");
+  }
+};
+
+window.addEventListener("scroll", scrollTop);
